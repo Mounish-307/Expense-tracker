@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       Object.entries(catTotal).map(([k, v]) => [k, Math.round(v / 3)])
     );
 
-    const currentBudgetMap = Object.fromEntries(
+    const currentBudgetMap: Record<string, number> = Object.fromEntries(
       (currentBudgets ?? []).map((b) => [b.category, Number(b.monthly_limit)])
     );
 
