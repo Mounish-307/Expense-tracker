@@ -27,9 +27,18 @@ interface Props {
 
 const RADIAN = Math.PI / 180;
 
+interface CustomLabelProps {
+  cx?: number;
+  cy?: number;
+  midAngle?: number;
+  innerRadius?: number;
+  outerRadius?: number;
+  percentage?: number;
+}
+
 function CustomLabel({
-  cx, cy, midAngle, innerRadius, outerRadius, percentage, category,
-}: any) {
+  cx = 0, cy = 0, midAngle = 0, innerRadius = 0, outerRadius = 0, percentage = 0,
+}: CustomLabelProps) {
   if (percentage < 8) return null;
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
